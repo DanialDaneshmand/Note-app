@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addNote } from "../../Redux/Notes/NotesAction";
 
 function AddNotes() {
+  const dispatch = useDispatch();
   const [note, setNote] = useState({
     noteTitle: "",
     noteDescription: "",
@@ -9,7 +12,11 @@ function AddNotes() {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
+    if(!note.noteDescription&&!note.noteTitle) {
+      return alert('fill all inputs!')
+    }
     e.preventDefault();
+    dispatch(addNote(note));
     setNote({
       noteTitle: "",
       noteDescription: "",
