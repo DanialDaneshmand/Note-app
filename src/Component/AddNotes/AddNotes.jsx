@@ -25,7 +25,7 @@ function AddNotes() {
   return (
     <section className="mt-8">
       <div className="flex flex-col items-center">
-        <p className="text-2xl font-bold">Add New Note</p>
+        <p className="text-2xl font-bold text-slate-800">Add New Note</p>
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
           <input
             type="text"
